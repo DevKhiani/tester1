@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mega Man 2 Bosses</title>
+    <style>
+        body { background: #aa0000; color: white; font-family: sans-serif; margin: 0; padding: 20px; }
+        header, nav, main { max-width: 800px; margin: 0 auto; text-align: center; }
+        
+        nav button { background: black; color: white; border: 1px solid white; padding: 8px 12px; margin: 4px; cursor: pointer; font-weight: bold; }
+        nav button:hover { background: #ffcc00; color: black; }
+        
+        .grid { display: flex; gap: 20px; margin: 20px 0; justify-content: center; }
+        .box { width: 50%; height: 200px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 3px solid black; }
+        #visual { background: white; color: black; font-size: 24px; }
+        #video { background: black; color: #888; font-size: 14px; }
+        
+        .card { background: #440000; border: 2px solid black; padding: 15px; margin: 10px 0; text-align: left; border-radius: 5px; }
+        .card h3 { margin-top: 0; color: #ffcc00; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="boss-title">METAL MAN</h1>
+    </header>
+
+    <nav>
+        <button onclick="changeBoss('metal')">Metal Man</button>
+        <button onclick="changeBoss('quick')">Quick Man</button>
+        <button onclick="changeBoss('bubble')">Bubble Man</button>
+        <button onclick="changeBoss('wood')">Wood Man</button>
+        <button onclick="changeBoss('air')">Air Man</button>
+        <button onclick="changeBoss('heat')">Heat Man</button>
+        <button onclick="changeBoss('crash')">Crash Man</button>
+        <button onclick="changeBoss('flash')">Flash Man</button>
+    </nav>
+
+    <main>
+        <div class="grid">
+            <div id="visual" class="box">⚙️</div>
+            <div id="video" class="box">YouTube Player Placeholder</div>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ The Stage</h3>
+            <p id="stage">Conveyor belts, gears, and crushing hazards make this a frantic factory rush.</p>
+        </div>
+
+        <div class="card">
+            <h3>💀 The Boss</h3>
+            <p id="boss">Built for high precision. He jumps and throws quick, multi-directional Metal Blades.</p>
+        </div>
+
+        <div class="card">
+            <h3>🔧 Weakness</h3>
+            <p id="weakness">Weak against Quick Boomerang. He is also hilariously weak to his own Metal Blade in rematches.</p>
+        </div>
+    </main>
+
+    <script>
+        const data = {
+            metal: {
+                title: "METAL MAN", color: "#ff4444", icon: "⚙️",
+                stage: "Conveyor belts, gears, and crushing hazards make this a frantic factory rush.",
+                boss: "Built for high precision. He jumps and throws quick, multi-directional Metal Blades.",
+                weakness: "Weak against Quick Boomerang. He is also hilariously weak to his own Metal Blade in rematches."
+            },
+            quick: {
+                title: "QUICK MAN", color: "#ffe600", icon: "⚡",
+                stage: "An underground base famous for its terrifying, instant-kill forced laser beams.",
+                boss: "Blazing fast speeds! He charges across the room and fires returning boomerangs.",
+                weakness: "Can be frozen in place using the Time Stopper, or blown up using Crash Bomber."
+            },
+            bubble: {
+                title: "BUBBLE MAN", color: "#3366ff", icon: "🫧",
+                stage: "An underwater facility covered in instant-death spike ceilings.",
+                boss: "Swims along the ceiling raining down bubbles and firing underwater harpoons.",
+                weakness: "Highly vulnerable to the Metal Blade, which slices straight through water."
+            },
+            wood: {
+                title: "WOOD MAN", color: "#33aa33", icon: "🌳",
+                stage: "A deep forest filled with robotic fauna like giant mechanical ostriches and cyber-apes.",
+                boss: "Surrounds himself with an absolute Leaf Shield before throwing it across the arena.",
+                weakness: "His wooden body burns instantly under a fully charged Atomic Fire blast."
+            },
+            air: {
+                title: "AIR MAN", color: "#33ccff", icon: "💨",
+                stage: "A sky-sanctuary layout requiring blind leaps across floating cloud platforms.",
+                boss: "Generates massive mini-tornadoes using his body fan that block incoming attacks.",
+                weakness: "His wind currents cannot stop the wide reach of the Leaf Shield."
+            },
+            heat: {
+                title: "HEAT MAN", color: "#ff6600", icon: "🔥",
+                stage: "A boiling volcano area full of classic disappearing block puzzles over massive lava pits.",
+                boss: "Hurls pillars of fire and transforms into an invincible flying fireball when struck.",
+                weakness: "The pressurized water stream from Bubble Lead cools him off instantly."
+            },
+            crash: {
+                title: "CRASH MAN", color: "#ffaa00", icon: "🚀",
+                stage: "A steep, vertical climb up pipe towers infested with robotic birds.",
+                boss: "Leaps wildly through the air planting timed explosives onto the walls and floors.",
+                weakness: "Highly susceptible to the lifting wind patterns of the Air Shooter."
+            },
+            flash: {
+                title: "FLASH MAN", color: "#bb55ff", icon: "⏱️",
+                stage: "A neon-lit crystal cavern with slippery, icy floor physics.",
+                boss: "Uses his Flash Stopper to freeze time entirely, leaving you frozen while he shoots.",
+                weakness: "Crumbles under heavy kinetic impacts. Metal Blade and Crash Bomber break him easily."
+            }
+        };
+
+        function changeBoss(name) {
+            const boss = data[name];
+            document.getElementById('boss-title').innerText = boss.title;
+            document.getElementById('stage').innerText = boss.stage;
+            document.getElementById('boss').innerText = boss.boss;
+            document.getElementById('weakness').innerText = boss.weakness;
+            
+            const visualBox = document.getElementById('visual');
+            visualBox.style.backgroundColor = boss.color;
+            visualBox.innerText = boss.icon;
+        }
+    </script>
+
+</body>
+</html>
